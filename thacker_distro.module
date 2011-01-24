@@ -1,3 +1,55 @@
 <?php
 
 include_once('thacker_distro.features.inc');
+
+function thacker_distro_block($op = 'list', $delta = 0, $edit = array()) {
+  if ($op == 'list') {
+    $blocks[0] = array(
+      'info' => t('Thacker Description'), 
+      'weight' => 0, 
+      'status' => 0, 
+    );
+    $blocks[1] = array(
+      'info' => t('Contact'), 
+      'weight' => 0, 
+      'status' => 0, 
+    );
+    $blocks[2] = array(
+      'info' => t('Developed by'), 
+      'weight' => 0, 
+      'status' => 0, 
+    );
+    $blocks[3] = array(
+      'info' => t('License'), 
+      'weight' => 0, 
+      'status' => 0, 
+    );
+    return $blocks;
+  }
+  else if ($op == 'view') {
+    switch ($delta) {
+    case 0:
+      $block = array(
+        'subject' => 'Sobre a THacker', 
+        'content' => '<p>A comunidade Transparência Hacker é um espaço para que desenvolvedores web, jornalistas, designers, gestores públicos e outros indivíduos dos mais diferentes perfis proponham e articulem ideias e projetos que utilizem a tecnologia para fins de interesse da sociedade. Trabalhamos primariamente com dados governamentais abertos, promovendo ações que evidenciam a importância desses dados e fazendo pressão para que os organismos do governo brasileiro adotem a mesma medida de liberação de dados públicos em formatos abertos. Acima de tudo, provocamos e buscamos evidenciar questões sociais e políticas através da ressignificação de informações existentes, mas que ainda são de difícil acesso para a sociedade em geral.</p>',
+      );
+    case 1:
+      $block = array(
+        'subject' => 'Contato', 
+        'content' => '<p>Participe da lista de discussão:</p>
+<a href="http://groups.google.com/group/thackday">thackday@googlegroups.com</a>',
+      );
+    case 2:
+      $block = array(
+        'subject' => '', 
+        'content' => '<p>Transparência Hacker - Desenvolvido por <a href="http://blog.esfera.mobi/">ESFERA</a> &ensp; Apoio: <a href="http://www.w3c.br/">W3C Brasil</a></p>',
+      );
+    case 3:
+      $block = array(
+        'subject' => '', 
+        'content' => '<p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img style="border-width: 0; float: left; margin-right: 10px;" src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Licença Creative Commons" /></a> <span style="font-size: 0.8em; line-height: 1em;">Exceto quando apontado de outra forma, o conteúdo desde site está sob uma  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"> Licença Creative Commons Atribuição 3.0</a>.</span></p>',
+      );
+      return $block;
+    }
+  }
+}
