@@ -119,11 +119,35 @@ function thacker_distro_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'thacker_distro-0' => array(
+          'module' => 'thacker_distro',
+          'delta' => 0,
+          'region' => 'postscript_bottom',
+          'weight' => 0,
+        ),
+        'thacker_distro-1' => array(
+          'module' => 'thacker_distro',
+          'delta' => 1,
+          'region' => 'postscript_bottom',
+          'weight' => 1,
+        ),
+        'thacker_distro-2' => array(
+          'module' => 'thacker_distro',
+          'delta' => 2,
+          'region' => 'footer',
+          'weight' => 0,
+        ),
         'system-0' => array(
           'module' => 'system',
           'delta' => 0,
           'region' => 'footer',
-          'weight' => 0,
+          'weight' => 1,
+        ),
+        'thacker_distro-3' => array(
+          'module' => 'thacker_distro',
+          'delta' => 3,
+          'region' => 'footer',
+          'weight' => 2,
         ),
       ),
     ),
