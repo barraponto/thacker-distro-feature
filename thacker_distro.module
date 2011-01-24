@@ -33,17 +33,20 @@ function thacker_distro_block($op = 'list', $delta = 0, $edit = array()) {
         'subject' => 'Sobre a THacker', 
         'content' => '<p>A comunidade Transparência Hacker é um espaço para que desenvolvedores web, jornalistas, designers, gestores públicos e outros indivíduos dos mais diferentes perfis proponham e articulem ideias e projetos que utilizem a tecnologia para fins de interesse da sociedade. Trabalhamos primariamente com dados governamentais abertos, promovendo ações que evidenciam a importância desses dados e fazendo pressão para que os organismos do governo brasileiro adotem a mesma medida de liberação de dados públicos em formatos abertos. Acima de tudo, provocamos e buscamos evidenciar questões sociais e políticas através da ressignificação de informações existentes, mas que ainda são de difícil acesso para a sociedade em geral.</p>',
       );
+      return $block;
     case 1:
       $block = array(
         'subject' => 'Contato', 
         'content' => '<p>Participe da lista de discussão:</p>
 <a href="http://groups.google.com/group/thackday">thackday@googlegroups.com</a>',
       );
+      return $block;
     case 2:
       $block = array(
         'subject' => '', 
         'content' => '<p>Transparência Hacker - Desenvolvido por <a href="http://blog.esfera.mobi/">ESFERA</a> &ensp; Apoio: <a href="http://www.w3c.br/">W3C Brasil</a></p>',
       );
+      return $block;
     case 3:
       $block = array(
         'subject' => '', 
