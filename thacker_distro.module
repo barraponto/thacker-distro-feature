@@ -24,6 +24,11 @@ function thacker_distro_block($op = 'list', $delta = 0, $edit = array()) {
       'weight' => 0, 
       'status' => 0, 
     );
+    $blocks[4] = array(
+      'info' => t('Welcome'),
+      'weight' => 0,
+      'status' => 0,
+    );
     return $blocks;
   }
   else if ($op == 'view') {
@@ -53,6 +58,34 @@ function thacker_distro_block($op = 'list', $delta = 0, $edit = array()) {
         'content' => '<p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img style="border-width: 0; float: left; margin-right: 10px;" src="http://i.creativecommons.org/l/by/3.0/88x31.png" alt="Licença Creative Commons" /></a> <span style="font-size: 0.8em; line-height: 1em;">Exceto quando apontado de outra forma, o conteúdo desde site está sob uma  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"> Licença Creative Commons Atribuição 3.0</a>.</span></p>',
       );
       return $block;
+    case 4:
+      $block = array(
+        'subject' => '',
+        'content' => thacker_distro_welcome_block()
+      );
+      return $block;
     }
   }
+}
+
+function thacker_distro_welcome_block() {
+
+  global $user;
+
+  $avatar = theme('imagecache', 'avatar_thumb', $user->picture);
+  $avatar_link = l($avatar, 'user/' . $user->uid, array('html' => 'true'));
+  $username_link =  l($user->name, 'user/' . $user->uid);
+  $edit_link = l(t('edit your profile'), 'user/' . $user->uid . '/edit');
+  $logout_link = l(t('leave'), 'logout');
+
+  return '<div id="bemvindo">
+          <div class="imagem">'. $avatar_link . '</div>
+          <div id="texto">
+            <div id="saudacao">
+              <strong>Bem vindo,' . $username_link . '</strong>
+            </div>
+            <div id="perfil">' . $edit_link . '</div>
+          </div>
+          <div id="logout">' . $logout_link . '</div>
+        </div>';
 }
