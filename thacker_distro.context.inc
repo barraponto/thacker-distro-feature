@@ -63,7 +63,18 @@ function thacker_distro_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array();
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'thacker_distro-4' => array(
+          'module' => 'thacker_distro',
+          'delta' => 4,
+          'region' => 'header_top',
+          'weight' => 0,
+        ),
+      ),
+    ),
+  );
   $context->condition_mode = 0;
 
   // Translatables
