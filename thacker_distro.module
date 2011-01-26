@@ -72,13 +72,13 @@ function thacker_distro_welcome_block() {
 
   global $user;
 
-  $avatar = theme('imagecache', 'avatar_thumb', $user->picture);
+  $avatar = theme('imagecache', 'avatar_small', $user->picture);
   $avatar_link = l($avatar, 'user/' . $user->uid, array('html' => 'true'));
   $username_link =  l($user->name, 'user/' . $user->uid);
   $edit_link = l(t('edit your profile'), 'user/' . $user->uid . '/edit');
   $logout_link = l(t('leave'), 'logout');
 
-  return '<div id="bemvindo">
+  $content = '<div id="bemvindo">
           <div class="imagem">'. $avatar_link . '</div>
           <div id="texto">
             <div id="saudacao">
@@ -88,4 +88,6 @@ function thacker_distro_welcome_block() {
           </div>
           <div id="logout">' . $logout_link . '</div>
         </div>';
+
+  return $content;
 }
