@@ -84,9 +84,11 @@ function thacker_distro_strongarm() {
     ),
     'comment' => array(
       'dt_project' => array(),
+      'dt_event' => array(),
     ),
     'node' => array(
       'dt_project' => array(),
+      'dt_event' => array(),
     ),
   );
 
