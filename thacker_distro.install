@@ -1,11 +1,32 @@
 <?php
 
-function thacker_distro() {
+function thacker_distro_install() {
   module_load_include('inc', 'thacker_distro', 'thacker_distro.strongarm');
 
   $variables = thacker_distro_strongarm();
 
   foreach ($variables as $variable) {
-    variable_set($variable->name, serialize($variable->value));
+    variable_set($variable->name, $variable->value);
   }
+
+  //adding links to the thacker toolbar
+  $shortcuts = array (
+    0 => array (
+      'link_path' => 'node/add/dt-project',
+      'link_title' => 'Create new Project',
+      'weight' => '1',
+    ),
+    1 => array (
+      'link_path' => 'node/add/dt-event',
+      'link_title' => 'Create new Event',
+      'weight' => '2',
+    ),
+  );
+  
+  $files = drupal_system_listing('\.module$', 'modules', 'name', 0);
+  if ($files['toolbar']) { include_once $files['toolbar']->filename; }
+
+  toolbar_create('thacker', 'Transparencia Hacker toolbar', $shortcuts);
+  toolbar_set_role_toolbar('thacker', 2);
+
 }
